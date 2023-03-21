@@ -1,0 +1,31 @@
+//Check odd or even
+#include <stdio.h>
+
+int checkoddeven(int num){
+    int flag=0;
+    if (num%2==0){
+        flag=1;
+    }
+    return flag;
+}
+int main() {
+    int lim,num,result,en,on;
+    printf("Enter the limit: ");
+    scanf("%d",&lim);
+    for (int i=0;i<lim;i++){
+        printf("\nEnter a number: ");
+        scanf("%d",&num);
+        result=checkoddeven(num);
+        if (result==1){
+            printf("%d is even number",num);
+            en+=1;
+        }
+        else
+        printf("%d is odd number",num);
+        on+=1;
+    }
+    printf("\nHey limit reached!!");
+    printf("\nThe number of even numbers entered is %d",en);
+    printf("\nThe number of odd numbers entered is %d",on);
+    return 0;
+}
