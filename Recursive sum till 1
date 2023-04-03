@@ -1,0 +1,18 @@
+//Find the sum of numbers from the input till 1 using recursion
+#include <stdio.h>
+int recsum(num);
+int main() {
+    int num,a;
+    printf("Enter a number: ");
+    scanf("%d",&num);
+    a=recsum(num);
+    printf("The recursive sum from %d to 1 is %d",num,a);
+    return 0;
+}
+int recsum(num){
+    if (num!=0){
+       return num+recsum(num-1);
+    }
+    else
+    return 0;
+}
