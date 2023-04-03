@@ -1,0 +1,17 @@
+Calculating the netpay for the entered gross pay
+#include <stdio.h>
+void main(){ 
+    float bpay;
+    printf("Enter your basic pay amount: ");
+    scanf("%f",&bpay);
+    float da, hra, ca, ins, pf, gpay, ded, np;
+    da=0.88*bpay;
+    hra=0.08*bpay;
+    ca=1000;
+    ins=2000;
+    pf=0.1*bpay;
+    gpay=bpay+da+hra+ca;
+    ded=ins+pf;
+    np=gpay-ded;
+    printf("The net pay is %f",np);
+}
