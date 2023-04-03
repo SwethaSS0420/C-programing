@@ -1,0 +1,22 @@
+//Finding LCM of two numbers entered by the user
+#include <stdio.h>
+#include <stdbool.h>
+int lcm(int a, int b){
+    int g=0,i;
+    g=(a>b)?a:b; 
+    i=g;
+    while(true){
+        if(i%a==0 && i%b==0){
+            return i;
+            break;
+        }
+        i++;
+    }
+}
+int main(){
+    int num1,num2;
+    scanf("%d",&num1);
+    scanf("%d", &num2);
+    printf("%d",lcm(num1,num2));
+    return 0;
+}
