@@ -1,0 +1,19 @@
+//Function to find the value of a number raised to some power
+# include <stdio.h>
+float powfunc(float num,int power){
+    float prod=1;
+    while(power>0){
+        prod*=num;
+        power-=1;
+    }
+    return prod;
+}
+int main(){
+    float num,power,ans;
+    printf("Enter the value for base: ");
+    scanf("%f",&num);
+    printf("Enter the value for power: ");
+    scanf("%f",&power);
+    ans=powfunc(num,power);
+    printf("The value of %f to the power %f is %f",num,power,ans);
+}
