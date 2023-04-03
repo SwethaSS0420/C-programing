@@ -1,0 +1,22 @@
+//Finding product of all the numbers entered using recursion
+# include <stdio.h>
+float recproduct(int n){
+    static float product=1;
+    if (n>0){
+        float num;
+        scanf("%f",&num);
+        product*=num;
+        n-=1;
+        recproduct(n);
+    }
+    return product;
+}
+
+int main(){
+    int n;
+    float ans;
+    printf("Enter the number of inputs: ");
+    scanf("%d",&n);
+    ans=recproduct(n);
+    printf("The product is %f",ans);
+}
