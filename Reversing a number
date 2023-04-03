@@ -1,0 +1,21 @@
+//Program to print the entered number in reverse order
+#include <stdio.h>
+int revnum(int num){
+    int n,rem=0,reverse=0;
+    n=num;
+    while (n>0){
+        rem=n%10;
+        reverse=reverse*10+rem;
+        n/=10;
+    }
+    return reverse;
+}
+
+int main(){
+    int num,y;
+    printf("Enter the number to be reversed: ");
+    scanf("%d",&num);
+    printf("The reversed number is: ");
+    y=revnum(num);
+    printf("%d",y);
+}
