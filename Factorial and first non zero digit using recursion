@@ -1,0 +1,37 @@
+//Finding factorial using recursion and printing the first non zero digit of the factorial from right
+#include <stdio.h>
+int factorial(int num){
+    if (1>=num<=100){
+        int fac=1;
+        for(int i=2;i<=num;i++){
+            fac*=i;
+        }
+        return fac;
+    }
+    else
+    return 0;
+}
+int findnz(ans){
+    int rem;
+    rem=ans%10;
+    if(rem!=0){
+        return rem;
+    }
+    else{
+        findnz(ans/10);
+    }
+}
+int main(){
+    int num,ans,x;
+    printf("Enter the number: ");
+    scanf("%d",&num);
+    ans=factorial(num);
+    if (ans!=0){
+        printf("The factorial of %d is %d",num,ans);
+        x=findnz(ans);
+        printf("\nThe first non zero number from the right is %d",x);
+    }
+   
+    else
+    printf("Error not in range");
+}
