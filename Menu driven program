@@ -1,0 +1,98 @@
+//A program to do as per the user wants by providing a menu
+//It consists of basic number operations like sum of all digits, reverse of a number,
+//word equivalent of a number, no of odd/even digits, length of a number etc,
+#include <stdio.h>
+int main(){
+    int num,choice;
+    printf("Enter a number: ");
+    scanf("%d",&num);
+    printf("Menu:\n1.Find the size of number\n2.Find no of odd numbers\n3.Find the sum of all digits\n4.Find the reverse of the number\n5.Find the word equivalent of the number\nEnter your choice from the menu: ");
+    scanf("%d",&choice);
+    switch(choice){
+        case 1:
+        int n1,dig=0,x;
+        n1=num;
+        while(n1>0){
+            x=n1%10;
+            dig+=1;
+            n1/=10;
+        }
+        printf("\nThe size of the number is %d",dig);
+        printf("\nThank you");
+        break;
+        
+        case 2:
+        int n2,odd=0,y;
+        n2=num;
+        while(n2>0){
+            y=n2%10;
+            if(y%2!=0){
+                odd+=1;
+            }
+            n2/=10;
+        }
+        printf("\nThe no of odd digits in the number is %d",odd);
+        printf("\nThank you");
+        break;
+        
+        case 3:
+        int n3,sum=0,rem;
+        n3=num;
+        while(n3>0){
+            rem=n3%10;
+            sum+=rem;
+            n3/=10;
+        }
+        printf("\nThe sum of all the digits is %d",sum);
+        printf("\nThank you");
+        break;
+        
+        case 4:
+        int n4,rem1,rev;
+        n4=num;
+        while(n4>0){
+           rem1=n4%10;
+           rev=rev*10+rem1;
+           n4/=10;
+        }
+        printf("\nThe reverse of the number is %d",rev);
+        printf("\nThank you");
+        break;
+        
+        case 5:
+        int n5,z,rev1,rem2;
+        n5=num;
+        while(n5>0){
+           rem2=n5%10;
+           rev1=rev1*10+rem2;
+           n5/=10;
+        }
+        printf("\nThe word equivalent of the number is ");
+        while(rev1>0){
+            z=rev1%10;
+            if(z==0)
+            printf("zero ");
+            else if(z==1)
+            printf("one ");
+            else if(z==2)
+            printf("two ");
+            else if(z==3)
+            printf("three ");
+            else if(z==4)
+            printf("four ");
+            else if(z==5)
+            printf("five ");
+            else if(z==6)
+            printf("six ");
+            else if(z==7)
+            printf("seven ");
+            else if(z==8)
+            printf("eight ");
+            else if(z==9)
+            printf("nine ");
+            rev1/=10;
+        }
+        printf("\nThank you");
+    }
+    return 0;
+}
