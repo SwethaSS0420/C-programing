@@ -1,0 +1,23 @@
+//Progarm to print reversed array using malloc, arrays and pointers
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int num, *arr,*arr1, i,j;
+    scanf("%d", &num);
+    arr = (int*) malloc(num * sizeof(int));
+    arr1= (int*) malloc(num * sizeof(int));
+    for(i = 0; i < num; i++) {
+        scanf("%d", arr + i);
+        *(arr1+i) = *(arr+i);
+    }
+    for(i=0,j=num-1;i<num;i++,j--)
+    {
+        *(arr+i)=*(arr1+j);
+    }
+
+    for(i = 0; i < num; i++)
+        printf("%d ", *(arr + i));
+    return 0;
+}
