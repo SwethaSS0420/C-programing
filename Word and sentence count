@@ -1,0 +1,40 @@
+//Program to find the no of words and sentences in a given test string
+#include <stdio.h> 
+#include <string.h> 
+int main()  {
+    char str[1000];
+    int i,j,word=0,sent=0;     
+    scanf("%[^END]",str);     
+    char prev = '\0';
+    for(i=0;i<=strlen(str);i++)     
+    {
+        if(prev == ' ' || prev=='?'||prev=='.'||prev==','||prev=='\n')
+        {
+            prev='\0';
+
+        }
+        else if(prev != '.' && i==strlen(str)-1)
+        {
+            sent++;
+            word++;
+        }
+        else if(str[i] == ' ' && prev !=',')
+        {
+            word++;
+        }
+          
+        
+        else if(str[i] ==  ',' && prev !='\0')
+        {
+            word++;
+        }
+        else if(str[i] == '!' ||str[i]=='.'||str[i]=='?' ||str[i]=='\0'||str[i]=='\n')
+        {
+                sent++;
+                word++;
+        }
+
+        prev=str[i];
+    }
+    printf("Sentences: %d, Word:%d", sent, word);
+}
