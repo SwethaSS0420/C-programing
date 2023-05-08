@@ -1,0 +1,95 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct marks
+{
+    char name[20];
+    int marks;
+    int reg;
+};
+void display(int n1, struct marks* m1,int n2,struct marks* m2,int* arr)
+    {
+        int i=0;
+        for(;i<n1;i++)
+        {
+            arr[i]=(m1+i)->marks;
+        }
+        for(int j=0;j<n2;j++)
+        {
+            arr[j+n1]=(m2+j)->marks;
+        }
+    }
+void arrange(int n,int* arr)
+{
+    int temp;
+    for(int i=0;i<n;i++)
+    {
+        for(int j=i+1;j<n;j++)
+        {
+            if(arr[j]>arr[i])
+            {
+                temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+            }
+        }
+    }
+}
+void PrintHighest(int n1,struct marks *m1,int n2,struct marks *m2)
+{
+    int highest = 0;int recno=0, recclass = 0;
+    for(int i=0;i<n1;i++)
+    {
+        if((m1+i)->marks > highest)
+        {
+            highest = (m1+i)->marks;
+            recno=i;
+            recclass = 1;
+        }
+        if((m2+i)->marks > highest)
+        {
+            highest = (m2+i)->marks;
+            recno=i;
+            recclass = 2;
+        }
+    }
+    if(recclass==1)
+    printf("\nName: %s, RegNo:%d", (m1+recno)->name,(m1+recno)->reg);
+    else if (recclass ==2)
+    printf("\nName: %s, RegNo:%d", (m2+recno)->name,(m2+recno)->reg);
+    
+}
+int main() 
+{
+    struct marks *m1,*m2;
+    int n1,n2;
+    scanf("%d",&n1);
+    m1=(struct marks*)malloc(n1*sizeof(struct marks));
+    for(int i=0;i<n1;i++)
+    {
+        printf("Enter name: ");
+        scanf("%s",(m1+i)->name);
+        printf("\nEnter marks: ");
+        scanf("%d",&(m1+i)->marks);
+        printf("\nEnter roll: ");
+        scanf("%d",&(m1+i)->reg);
+    }
+    scanf("%d",&n2);
+    m2=(struct marks*)malloc(n2*sizeof(struct marks));
+    for (int j=0;j<n2;j++)
+    {
+        printf("Enter name: ");
+        scanf("%s",(m2+j)->name);
+        printf("Enter marks: ");
+        scanf("%d",&(m2+j)->marks);
+        printf("Enter roll: ");
+        scanf("%d",&(m2+j)->reg);
+    }
+    int arr[n1+n2],check[n1+n2];
+    display(n1,m1,n2,m2,arr);
+    arrange(n1+n2,arr);
+    for(int i=0;i<n1+n2;i++)
+    {
+        printf("%d ",arr[i]);
+    }
+    PrintHighest(n1,m1,n2,m2);
+}
